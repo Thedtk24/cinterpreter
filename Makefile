@@ -10,6 +10,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -lm
+	./main 
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
