@@ -1,6 +1,6 @@
 # Cinterpreter
 
-A simple arithmetic expression evaluator written in C, by Thed Arthur (Me). This is a project which will continue to be improved upon, with new features, so as to reach a better C interpreter.
+A simple arithmetic expression evaluator written in C. This is a project which will continue to be improved upon, with new features, so as to reach a better C interpreter.
 
 ## Description
 
