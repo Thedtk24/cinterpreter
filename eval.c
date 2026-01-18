@@ -1,4 +1,4 @@
-/* Author : Thed Arthur, Jan. 2026 */
+/* Authors : Thed Arthur, Junior Koudogbo Jan. 2026 */
 
 #include <stdio.h>
 #include <stdlib.h>
