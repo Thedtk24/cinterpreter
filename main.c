@@ -26,7 +26,10 @@ int main(){
 
     while(execute){
         printf(">>> ");
-        scanf("%1000s", buffer);
+
+        fgets(buffer, sizeof(buffer), stdin);
+        buffer[strcspn(buffer, "\n")] = 0; 
+
 
         int SIZE = strlen(buffer);
 
@@ -38,7 +41,15 @@ int main(){
             system("clear");
         }
 
-        if(strcmp(buffer, "clear") != 0){
+        if(buffer[0] == '"' && buffer[SIZE - 1] == '"'){
+            printf("'");
+            for(int i = 1; i < SIZE - 1; i++){
+                printf("%c", buffer[i]);
+            }
+            printf("'\n");
+        }
+
+        if(strcmp(buffer, "clear") != 0 && buffer[0] != '"'){
             //printf("ops = %d ; ", count_ops(buffer, SIZE));
 
             int ops = count_ops(buffer, SIZE);
@@ -49,7 +60,6 @@ int main(){
             char *operators = malloc((ops + 1) * sizeof(char));
 
             extract_ops(buffer, operators, ops);
-
             /*printf("Operators = {");
             for(int i = 0; i < ops - 1; i++){
                 printf("%c, ", operators[i]);
@@ -65,7 +75,7 @@ int main(){
             printf("%d}\n", values[ops]);*/
 
             int n_values = extract_numbers(buffer, values);
-            if(n_values != ops + 1){
+            if(n_values != ops + 1 && ops > 0){
                 fprintf(stderr, "Error : number of values != number of operators + 1\n");
             }
 
